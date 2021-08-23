@@ -377,6 +377,10 @@ class ExportsParser {
             const arg = variadic ? args.pop() : [this._lastTypeParts.slice(0, -1).join(" "), this._lastTypeParts[this._lastTypeParts.length - 1]];
             arg.variadic = variadic;
 
+            if (variadic) {
+                arg[0] += "*";
+            }
+
             args.push(arg);
 
             this.mayBeSpace();
